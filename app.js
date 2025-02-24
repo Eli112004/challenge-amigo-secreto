@@ -2,7 +2,7 @@
 
 let amigos = [];
 
-function agregarAmigo() {
+function agregarAmigo() { //agrega amigos a la lista
     let nombreAmigo = document.getElementById('amigo').value.trim(); // .trim: elimina espacios extra
     //checamos
     console.log(`Nombre: "${nombreAmigo}"`);
@@ -24,8 +24,9 @@ function agregarAmigo() {
     console.log(amigos);
 
     limpiarCaja();
-    //actualizarLista();
+    actualizarLista();
 }
+
 
 
 function limpiarCaja() {
@@ -33,4 +34,16 @@ function limpiarCaja() {
 }
 
 
+
+function actualizarLista() { // actualiza nuestra lista
+    let lista = document.getElementById('listaAmigos');
+
+    lista.innerHTML = ""; //limpia la lista
+
+    for (let amigo of amigos) { // recorre la lista amigos
+        let li = document.createElement('li'); 
+        li.textContent = amigo; 
+        lista.appendChild(li); 
+    }
+}
 
