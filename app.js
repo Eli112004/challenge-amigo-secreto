@@ -28,11 +28,9 @@ function agregarAmigo() { //agrega amigos a la lista
 }
 
 
-
-function limpiarCaja() {
+function limpiarCaja() { //limpia para poder poner nombres
     document.querySelector('#amigo').value = '';
 }
-
 
 
 function actualizarLista() { // actualiza nuestra lista
@@ -45,5 +43,18 @@ function actualizarLista() { // actualiza nuestra lista
         li.textContent = amigo; 
         lista.appendChild(li); 
     }
+}
+
+
+function sortearAmigo() { //sortea nuestros nombres
+    if (amigos.length === 0) { // Validar que haya amigos en la lista
+        alert("No hay amigos para sortear. Agrega algunos amigos primero.");
+        return;
+    }
+
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length); // Genera un indice aleatorio
+    let amigoSorteado = amigos[indiceAleatorio]; //Obtiene nombre sorteado
+
+    document.getElementById("resultado").innerHTML = `Tu amigo secreto es: <strong>${amigoSorteado}</strong> 🎉`; // Mostrar el resultado
 }
 
